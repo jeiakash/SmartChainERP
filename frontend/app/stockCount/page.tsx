@@ -117,10 +117,6 @@ const StockDashboard = () => {
       {/* Navigation */}
       <nav className="flex items-center justify-between mb-6 border-b border-blue-400 pb-2">
         <div className="flex gap-8">
-          <a href="#" className="hover:text-blue-300">Dashboard</a>
-          <a href="#" className="hover:text-blue-300">Accounting</a>
-          <a href="#" className="hover:text-blue-300">Stockcounts</a>
-          <a href="#" className="hover:text-blue-300">Credentials</a>
         </div>
         <div className="flex gap-4">
           <button 
