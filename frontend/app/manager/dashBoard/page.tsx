@@ -1,8 +1,14 @@
+"use client";
+import { Navbar } from "../Navbar/navbar";
+
 export default function Dashboard() {
-    return (
+  return (
+    <>
+      <Navbar />
       <div className="p-6">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         {/* Your dashboard content */}
       </div>
-    );
-  }
+    </>
+  );
+}

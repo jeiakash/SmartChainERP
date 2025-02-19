@@ -1,5 +1,5 @@
 "use client";
-
+import { Navbar } from "../Navbar/navbar";
 import React, { useState } from 'react';
 import { stockData } from '@/components/stockcount/data';
 import SidePanel from '@/components/stockcount/SidePanel';
@@ -10,6 +10,8 @@ export default function StockCountPage() {
   const [activeView, setActiveView] = useState<string>('table');
 
   return (
+    <>
+    <Navbar />
     <div className="relative p-6 bg-black text-blue-300 min-h-screen">
       <h1 className="text-xl font-semibold mb-6 text-blue-400">Stock Dashboard</h1>
       
@@ -27,5 +29,6 @@ export default function StockCountPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

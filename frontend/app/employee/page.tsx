@@ -7,46 +7,58 @@ import { DeliveryStatus } from '@/components/employee/DeliveryStatus';
 import { CancelOrderDialog } from '@/components/employee/CancelOrderDialog';
 import { DeliveryOrder, UndeliverableOrder } from '@/components/employee/types';
 
-// Sample data - in a real app, this would come from an API
-const initialOrders: DeliveryOrder[] = [
-  {
-    orderId: "ORD-001",
-    orderName: "John Smith",
-    phoneNumber: "555-0123",
-    address: "123 Main St, City, State",
-    isDelivered: false,
-    items: ["Laptop", "Mouse"]
-  },
-  {
-    orderId: "ORD-002",
-    orderName: "Jane Doe",
-    phoneNumber: "555-0124",
-    address: "456 Oak St, City, State",
-    isDelivered: true,
-    items: ["Keyboard", "Monitor"]
-  }
-];
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
 
-const initialUndeliverableOrders: UndeliverableOrder[] = [
-  {
-    orderId: "ORD-006",
-    name: "Alice Johnson",
-    phone: "555-0128",
-  },
-  {
-    orderId: "ORD-007",
-    name: "Tom Davis",
-    phone: "555-0129",
-  }
-];
+// Sample data generator based on employee ID
+const generateOrdersForEmployee = (employeeId: string): DeliveryOrder[] => {
+  return [
+    {
+      orderId: `ORD-${employeeId}-001`,
+      orderName: "John Smith",
+      phoneNumber: "555-0123",
+      address: "123 Main St, City, State",
+      isDelivered: false,
+      items: ["Laptop", "Mouse"]
+    },
+    {
+      orderId: `ORD-${employeeId}-002`,
+      orderName: "Jane Doe",
+      phoneNumber: "555-0124",
+      address: "456 Oak St, City, State",
+      isDelivered: true,
+      items: ["Keyboard", "Monitor"]
+    }
+  ];
+};
 
-export default function EmployeePage() {
+const generateUndeliverableOrdersForEmployee = (employeeId: string): UndeliverableOrder[] => {
+  return [
+    {
+      orderId: `ORD-${employeeId}-006`,
+      name: "Alice Johnson",
+      phone: "555-0128",
+    },
+    {
+      orderId: `ORD-${employeeId}-007`,
+      name: "Tom Davis",
+      phone: "555-0129",
+    }
+  ];
+};
+
+export default function EmployeePage({ params }: PageProps) {
   const [mounted, setMounted] = React.useState(false);
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [selectedOrderId, setSelectedOrderId] = React.useState<string | null>(null);
   const [selectedReason, setSelectedReason] = React.useState("");
-  const [orders, setOrders] = React.useState<DeliveryOrder[]>(initialOrders);
-  const [undeliverableOrders] = React.useState<UndeliverableOrder[]>(initialUndeliverableOrders);
+  const [orders, setOrders] = React.useState<DeliveryOrder[]>(generateOrdersForEmployee(params.id));
+  const [undeliverableOrders] = React.useState<UndeliverableOrder[]>(
+    generateUndeliverableOrdersForEmployee(params.id)
+  );
 
   React.useEffect(() => {
     setMounted(true);
@@ -88,7 +100,7 @@ export default function EmployeePage() {
 
   return (
     <div className="container mx-auto p-6 space-y-6">
-      <h1 className="text-2xl font-bold mb-6">Employee Management</h1>
+      <h1 className="text-2xl font-bold mb-6">Employee Dashboard - ID: {params.id}</h1>
       
       <CancelOrderDialog
         open={dialogOpen}
