@@ -1,4 +1,11 @@
-export interface DeliveryOrder {
+  
+  export interface PieChartData {
+    name: string;
+    value: number;
+    color: string;
+  }
+  
+  export interface DeliveryOrder {
     orderId: string;
     orderName: string;
     phoneNumber: string;
@@ -6,17 +13,11 @@ export interface DeliveryOrder {
     isDelivered: boolean;
     isCancelled?: boolean;
     cancellationReason?: string;
-    items?: string[];
+    items: string[];
   }
   
   export interface UndeliverableOrder {
     orderId: string;
     name: string;
     phone: string;
-  }
-  
-  export interface PieChartData {
-    name: string;
-    value: number;
-    color: string;
   }

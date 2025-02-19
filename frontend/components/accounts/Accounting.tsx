@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from 'react';
 import { Alert, AlertDescription } from "@/components/ui/Alert";
 import { AlertCircle } from "lucide-react";

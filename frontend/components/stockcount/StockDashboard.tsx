@@ -1,30 +1,14 @@
-"use client";
-import React, { useState } from 'react';
-import StockOverview from './StockOverview';
-import SidePanel from './SidePanel';
-import { stockData } from './data';
-import NavigationBar from './NavigationBar';
+import React from 'react';
+import FullscreenButton from './FullscreenButton';
 
-const StockDashboard = () => {
-  const [activeView, setActiveView] = useState('charts');
-
+export default function StockDashboard() {
   return (
-    <div className="w-full min-h-screen bg-black text-blue-400 p-6">
-      <NavigationBar activeView={activeView} setActiveView={setActiveView} />
-
-      <div className="grid grid-cols-12 gap-6">
-        {/* Main Content Area */}
-        <div className="col-span-12 lg:col-span-8 space-y-6">
-          <StockOverview activeView={activeView} stockData={stockData} />
-        </div>
-
-        {/* Side Panel */}
-        <div className="col-span-12 lg:col-span-4 space-y-6">
-          <SidePanel stockData={stockData} />
-        </div>
+    <div id="stockDashboard" className="relative p-6 bg-white rounded-lg shadow">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-semibold">Stock Dashboard</h2>
+        <FullscreenButton />
       </div>
+      <p>Here, stock counting and inventory management will be displayed.</p>
     </div>
   );
-};
-
-export default StockDashboard;
+}

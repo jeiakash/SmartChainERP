@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
-import { stockData } from '@/components/stockcount/data';
-import SidePanel from '@/components/stockcount/SidePanel';
-import NavigationBar from '@/components/stockcount/NavigationBar';
-import StockOverview from '@/components/stockcount/StockOverview';
+import { stockData } from './data';
+import SidePanel from './SidePanel';
+import NavigationBar from './NavigationBar';
+import StockOverview from './StockOverview';
 
 export default function StockCountPage() {
   const [activeView, setActiveView] = useState<string>('table');
