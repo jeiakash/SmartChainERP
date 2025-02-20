@@ -16,7 +16,7 @@ const StockOverview: React.FC<StockOverviewProps> = ({ activeView, stockData }) 
         <CardTitle className="text-blue-400">Stock Overview</CardTitle>
         <CardDescription className="text-blue-300">Comprehensive stock details</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="text-blue-200">
         {activeView === 'table' ? (
           <StockTable stockData={stockData} />
         ) : (

@@ -47,7 +47,7 @@ const SidePanel: React.FC<SidePanelProps> = ({ stockData }) => {
         <CardHeader>
           <CardTitle className="text-blue-400">High Demand Alert</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="text-blue-200">
           <div className="space-y-3">
             {displayedDemandItems.map(item => (
               <div key={item.productName} className="flex justify-between items-center p-3 bg-red-900/30 rounded border border-red-800">
@@ -82,7 +82,7 @@ const SidePanel: React.FC<SidePanelProps> = ({ stockData }) => {
         <CardHeader>
           <CardTitle className="text-blue-400">Recently Updated</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="text-blue-200">
           <div className="space-y-3">
             {[...stockData]
               .sort((a, b) => new Date(b.lastUpdated).getTime() - new Date(a.lastUpdated).getTime())

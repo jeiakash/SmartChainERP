@@ -6,8 +6,7 @@ export default function Dashboard() {
     <>
       <Navbar />
       <div className="p-6">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        {/* Your dashboard content */}
+        <h1 className="text-2xl font-bold">DashBoard</h1>
       </div>
     </>
   );

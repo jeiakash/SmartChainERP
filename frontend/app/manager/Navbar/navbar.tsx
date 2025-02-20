@@ -4,7 +4,7 @@ import { Anchor } from "lucide-react";
 export const NAVLINKS = [
     {
         title: "DashBoard",
-        href: "/manager/dashboard",
+        href: "/manager/dashBoard",
         icon: Anchor
     },
     {
